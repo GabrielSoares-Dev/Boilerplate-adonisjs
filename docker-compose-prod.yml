@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+ default-project-adonis:
+  container_name: default-project-adonis
+  image: gabrielsoaresdev/projectdefaultadonis:latest
+  restart: always
+  ports:
+   - "3333:3333"
+  networks:
+   - mysql-network
+   - proxy-reverse-network
+   - sg-manager-api-network

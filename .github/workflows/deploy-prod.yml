@@ -22,13 +22,13 @@ jobs:
           context: .
           file: Dockerfile.prod
           # Qual a tag
-          tags: gabrielsoaresdev/lumen-test:latest
+          tags: gabrielsoaresdev/projectdefaultadonis:latest
           no-cache: true
           push: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update image in stack
         uses: distributhor/workflow-webhook@v2
         env:
-         webhook_url: ${{secrets.TOKEN_ACTION_GIT}}
+         webhook_url: ${{secrets.WEB_HOOK_DOCKER_URL}}
          webhook_secret: "Y0uR5ecr3t"
          verify_ssl: false
