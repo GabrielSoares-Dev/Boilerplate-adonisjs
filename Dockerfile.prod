@@ -6,7 +6,8 @@ WORKDIR /app/default-project-adonis
 
 COPY package*.json .
 
-RUN npm install && node ace build --production
+RUN npm install
+RUN node ace build --production
 
 RUN cd build && npm ci --production
 
