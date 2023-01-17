@@ -10,4 +10,17 @@ services:
   networks:
    - mysql-network
    - proxy-reverse-network
-   - sg-manager-api-network
+   - default-project-adonis-network
+networks:
+  default-project-adonis:
+   name: default-project-adonis
+   driver: bridge
+  mysql-network:
+   name: mysql-network
+   external: true
+
+  proxy-reverse-network:
+   name: proxy-reverse-network
+   external: true
+
+
