@@ -10,6 +10,7 @@ RUN npm install && node ace build --production
 
 RUN cd build && npm ci --production
 
+RUN cat env-production >> .env
 
 COPY ./run-prod.sh /tmp
 RUN chmod +x run-prod.sh
