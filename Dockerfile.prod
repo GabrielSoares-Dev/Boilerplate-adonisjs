@@ -1,0 +1,17 @@
+FROM node:16.17-alpine
+
+
+WORKDIR /app/default-project-adonis
+
+
+COPY package*.json .
+
+RUN npm install && node ace build --production
+
+RUN cd build && npm ci --production
+
+
+COPY ./run-prod.sh /tmp
+RUN chmod +x run-prod.sh
+
+ENTRYPOINT ["sh", "/tmp/run-prod.sh"]
