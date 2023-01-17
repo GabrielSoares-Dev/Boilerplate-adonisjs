@@ -11,6 +11,8 @@ services:
    - mysql-network
    - proxy-reverse-network
    - default-project-adonis-network
+  env_file:
+    - stack.env
 
 
 networks:
