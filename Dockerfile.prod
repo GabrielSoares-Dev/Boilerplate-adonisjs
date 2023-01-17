@@ -6,7 +6,6 @@ WORKDIR /app/default-project-adonis
 
 COPY package*.json .
 
-ENV NODE_ENV=production
 RUN npm install
 
 RUN  node ace build --production
