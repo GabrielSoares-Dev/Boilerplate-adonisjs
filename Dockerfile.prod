@@ -8,7 +8,8 @@ COPY package*.json .
 
 RUN npm install
 
-RUN node ace generate:manifest  && node ace build --production
+RUN npm install  -g @adonisjs/cli
+RUN  node ace build --production
 
 
 RUN cd build && npm ci --production
