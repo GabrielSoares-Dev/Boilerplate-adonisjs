@@ -12,8 +12,8 @@ services:
    - proxy-reverse-network
    - default-project-adonis-network
 networks:
-  default-project-adonis:
-   name: default-project-adonis
+  default-project-adonis-network:
+   name: default-project-adonis-network
    driver: bridge
   mysql-network:
    name: mysql-network
