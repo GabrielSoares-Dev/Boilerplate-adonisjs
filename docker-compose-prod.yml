@@ -13,6 +13,10 @@ services:
    - mysql-network
    - proxy-reverse-network
    - default-project-adonis-network
+
+volumes:
+  node_modules-default-project-adonis:
+   name: node_modules-default-project-adonis
 networks:
   default-project-adonis-network:
    name: default-project-adonis-network
