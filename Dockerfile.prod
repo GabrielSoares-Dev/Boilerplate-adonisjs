@@ -1,21 +1,41 @@
-FROM node:16.17-alpine
+ARG NODE_IMAGE=node:16.17-alpine
 
 
+FROM $NODE_IMAGE AS base
+
+RUN apk --no-cache add dumb-init
+
+RUN mkdir -p /app/default-project-adonis && chown node:node /app/default-project-adonis
 WORKDIR /app/default-project-adonis
 
+USER node
 
-COPY package*.json .
+RUN mkdir tmp
 
-RUN npm install
+FROM base AS dependencies
 
-COPY . .
+COPY --chown=node:node ./package*.json ./
+
+RUN npm ci
+
+COPY --chown=node:node . .
+
+FROM dependencies AS build
+
 RUN  node ace build --production
 
+# RUN  cp -a docs/ build/docs
+FROM base AS production
 
-RUN cd build && npm ci --production
+COPY --chown=node:node ./package*.json ./
 
+RUN npm ci --production
+COPY --chown=node:node --from=build /app/default-project-adonis/build .
 
-COPY ./run-prod.sh /tmp
-RUN chmod +x run-prod.sh
+COPY --chown=node:node ./run-prod.sh  /tmp
+
+ RUN chmod +x /tmp/run-prod.sh
 
 ENTRYPOINT ["sh", "/tmp/run-prod.sh"]
+
+
