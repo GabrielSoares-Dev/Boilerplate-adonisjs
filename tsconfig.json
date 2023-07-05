@@ -10,7 +10,8 @@
       "App/*": ["./app/*"],
       "Config/*": ["./config/*"],
       "Contracts/*": ["./contracts/*"],
-      "Database/*": ["./database/*"]
+      "Database/*": ["./database/*"],
+      "Utils/*" : ["./app/Utils/*"]
     },
     "types": ["@adonisjs/core", "@japa/preset-adonis/build/adonis-typings"]
   }

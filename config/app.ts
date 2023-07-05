@@ -7,12 +7,14 @@ import type { ValidatorConfig } from '@ioc:Adonis/Core/Validator'
 
 export const appKey: string = Env.get('APP_KEY')
 export const http: ServerConfig = {
+  useAsyncLocalStorage: true,
   allowMethodSpoofing: false,
   subdomainOffset: 2,
   generateRequestId: false,
   trustProxy: proxyAddr.compile('loopback'),
   etag: false,
   jsonpCallbackName: 'callback',
+
   cookie: {
     domain: '',
     path: '/',
