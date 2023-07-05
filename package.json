@@ -1,5 +1,5 @@
 {
-  "name": "default-project-adonis",
+  "name": "boilerplate-adonisjs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
+    "@faker-js/faker": "^8.0.2",
     "@japa/preset-adonis": "^1.2.0",
     "@japa/runner": "^2.2.2",
     "@types/proxy-addr": "^2.0.0",
@@ -47,6 +48,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "nock": "^13.3.1",
     "pino-pretty": "^9.1.1",
     "prettier": "^2.8.3",
     "typescript": "~4.6",
@@ -55,6 +57,8 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.9.0",
+    "axios": "^1.4.0",
+    "form-data": "^4.0.0",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"

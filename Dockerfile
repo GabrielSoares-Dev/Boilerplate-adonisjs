@@ -1,7 +1,7 @@
-FROM node:16.19-alpine
+FROM node:18.16.1-alpine3.18
 
 
-WORKDIR /app/default-project-adonis
+WORKDIR /app/boilerplate-adonisjs
 
 
 COPY package*.json .
@@ -12,9 +12,6 @@ RUN npm install
 ENV CHOKIDAR_USEPOLLING=true
 COPY . .
 
-COPY ./run-dev.sh /tmp
-RUN chmod +x run-dev.sh
-
-ENTRYPOINT ["sh", "/tmp/run-dev.sh"]
+CMD node ace serve --watch
 
 

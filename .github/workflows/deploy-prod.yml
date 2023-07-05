@@ -1,11 +1,10 @@
-name: DEPLOY - PROD
+name: DEPLOY - PRODUCTION
 on:
-  workflow_dispatch:
   push:
     branches:
-      - main
+      - production
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositorio
@@ -18,17 +17,15 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.3.0
         with:
-          # Contexto onde está o arquivo Dockerfile, normalmente é .
           context: .
           file: Dockerfile.prod
-          # Qual a tag
-          tags: gabrielsoaresdev/projectdefaultadonis:latest
+          # tags: colocar iamge
           no-cache: true
           push: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN_GITHUB }}
       - name: Update image in stack
         uses: distributhor/workflow-webhook@v2
         env:
-         webhook_url: ${{secrets.WEB_HOOK_DOCKER_URL}}
-         webhook_secret: "Y0uR5ecr3t"
-         verify_ssl: false
+          webhook_url: ${{secrets.WEB_HOOK_DOCKER_URL}}
+          webhook_secret: 'Y0uR5ecr3t'
+          verify_ssl: false

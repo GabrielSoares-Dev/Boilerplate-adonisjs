@@ -1,30 +1,19 @@
 version: "3.5"
 
 services:
- default-project-adonis:
-  container_name: default-project-adonis
-  image: gabrielsoaresdev/projectdefaultadonis:latest
+boilerplate-adonisjs:
+  container_name: boilerplate-adonisjs
+  # image: colocar image
   restart: always
   ports:
    - "3333:3333"
   networks:
-   - mysql-network
-   - proxy-reverse-network
-   - default-project-adonis-network
+   - boilerplate-adonisjs-network
   env_file:
     - stack.env
-
-
 networks:
-  default-project-adonis-network:
-   name: default-project-adonis-network
+  boilerplate-adonisjs-network:
+   name: boilerplate-adonisjs-network
    driver: bridge
-  mysql-network:
-   name: mysql-network
-   external: true
-
-  proxy-reverse-network:
-   name: proxy-reverse-network
-   external: true
 
 

@@ -1,24 +1,20 @@
 version: "3.5"
 services:
-  default-project-adonis:
-    container_name: default-project-adonis
+  boilerplate-adonisjs:
+    container_name: boilerplate-adonisjs
     build: .
     restart: always
     ports:
     - "3333:3333"
     volumes:
-     - .:/app/default-project-adonis
-     - node-modules-default-project-adonis:/app/default-project-adonis/node_modules
+     - .:/app/boilerplate-adonisjs
+     - node-modules-boilerplate-adonisjs:/app/boilerplate-adonisjs/node_modules
     networks:
-      - default-project-adonis-network
-      - mysql-network
+      - boilerplate-adonisjs-network
 volumes:
-  node-modules-default-project-adonis:
-   name: node-modules-default-project-adonis
+  node-modules-boilerplate-adonisjs:
+   name: node-modules-boilerplate-adonisjs
 networks:
-  default-project-adonis-network:
-   name: default-project-adonis-network
+  boilerplate-adonisjs-network:
+   name: boilerplate-adonisjs-network
    driver: bridge
-  mysql-network:
-   name: mysql-network
-   external: true

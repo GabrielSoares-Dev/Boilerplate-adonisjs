@@ -1,12 +1,12 @@
-ARG NODE_IMAGE=node:16.17-alpine
+ARG NODE_IMAGE=node:18.16.1-alpine3.18
 
 
 FROM $NODE_IMAGE AS base
 
 RUN apk --no-cache add dumb-init
 
-RUN mkdir -p /app/default-project-adonis && chown node:node /app/default-project-adonis
-WORKDIR /app/default-project-adonis
+RUN mkdir -p /app/boilerplate-adonisjs && chown node:node /app/boilerplate-adonisjs
+WORKDIR /app/boilerplate-adonisjs
 
 USER node
 
@@ -30,7 +30,7 @@ FROM base AS production
 COPY --chown=node:node ./package*.json ./
 
 RUN npm ci --production
-COPY --chown=node:node --from=build /app/default-project-adonis/build .
+COPY --chown=node:node --from=build /app/boilerplate-adonisjs/build .
 
 COPY --chown=node:node ./run-prod.sh  /tmp
 

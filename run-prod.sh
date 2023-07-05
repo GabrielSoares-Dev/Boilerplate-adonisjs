@@ -1,4 +1,4 @@
-cd /app/default-project-adonis/build
+cd /app/boilerplate-adonisjs/build
 
 node ace migration:run --force
 node ace swagger:generate
