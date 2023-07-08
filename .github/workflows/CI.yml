@@ -11,7 +11,7 @@ jobs:
       postgres:
         image: postgres:latest
         env:
-          POSTGRES_DB: Boilerplate-test
+          POSTGRES_DB: Boilerplate-adonisjs-test
           POSTGRES_PASSWORD: XWkIaeExxDmRwdm
           POSTGRES_PORT: 5432
           POSTGRES_USER: postgres

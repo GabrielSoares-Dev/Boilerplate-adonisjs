@@ -1,5 +1,5 @@
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
-import DefaultResponse from 'Utils/DefaultResponse'
+import DefaultResponse from 'App/Utils/DefaultResponse'
 
 export default class HealthController {
   private defaultResponse: DefaultResponse
