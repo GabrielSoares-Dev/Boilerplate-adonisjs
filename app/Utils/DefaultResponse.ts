@@ -1,10 +1,11 @@
 import HttpContext from '@ioc:Adonis/Core/HttpContext'
+import type { DefaultResponseInterface } from 'App/Interfaces/Utils/DefaultResponseInterface'
 
-export default class DefaultResponse {
+export default class DefaultResponse implements DefaultResponseInterface {
   private http: typeof HttpContext
 
-  constructor() {
-    this.http = HttpContext
+  constructor(http: typeof HttpContext) {
+    this.http = http
   }
   public async success(message: string, statusCode: number) {
     const ctx = await this.http.get()

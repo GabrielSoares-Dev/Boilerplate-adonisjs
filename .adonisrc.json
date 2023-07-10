@@ -19,7 +19,10 @@
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
-    "@adonisjs/lucid"
+    "@adonisjs/lucid",
+    "./providers/RepositoriesProvider",
+    "./providers/UtilsProvider",
+    "@adonisjs/auth"
   ],
   "metaFiles": [
     {
