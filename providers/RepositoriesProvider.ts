@@ -1,28 +1,22 @@
 import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import UserLucidRepository from 'App/Repositories/UserRepository/UserLucidRepository'
-import RoleLucidRepository from 'App/Repositories/RoleRepository/RoleLucidRepository'
-import Roles from 'App/Models/Roles'
-import Users from 'App/Models/Users'
+
 
 export default class RepositoriesProvider {
   constructor(protected app: ApplicationContract) { }
 
   public register() {
-    this.app.container.singleton('Repositories/UserRepository', () => {
-     this.app.container.resolveBinding('Adonis/Lucid/Orm')
+    this.app.container.bind('Repositories/UserRepository', () => {
+      const UserLucidRepository = require('App/Repositories/UserRepository/UserLucidRepository').default
+      const userModel = require('App/Models/Users').default
 
-      return new UserLucidRepository(Users)
+      return new UserLucidRepository(userModel)
     })
-    this.app.container.singleton('Repositories/RoleRepository', () => {
-      const RolesModel = this.app.container.resolveBinding('Adonis/Lucid/Orm') as unknown as typeof Roles
+    this.app.container.bind('Repositories/RoleRepository', () => {
+      const RolesLucidRepository = require('App/Repositories/RoleRepository/RoleLucidRepository').default
+      const rolesModel = require('App/Models/Roles').default
 
-      return new RoleLucidRepository(RolesModel)
+      return new RolesLucidRepository(rolesModel)
     })
-
-  }
-
-
-  public async ready() {
 
   }
 

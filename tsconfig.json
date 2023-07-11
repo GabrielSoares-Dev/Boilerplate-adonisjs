@@ -23,6 +23,9 @@
       ],
       "Database/*": [
         "./database/*"
+      ],
+      "Tests/*": [
+        "./tests/*"
       ]
     },
     "types": [

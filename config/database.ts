@@ -20,6 +20,9 @@ const databaseConfig: DatabaseConfig = {
       },
       healthCheck: true,
       debug: false,
+      seeders: {
+        paths: ['./database/seeders/MainSeeder'],
+      },
     },
 
   }

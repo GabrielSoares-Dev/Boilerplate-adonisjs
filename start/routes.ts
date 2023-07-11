@@ -16,21 +16,21 @@ Route.group(() => {
     }).prefix('users')
   }).middleware('basicAuth')
 
-  // Route.group(() => {
-  //   Route.group(() => {
-  //     Route.post('/create', 'PermissionsController.store').middleware(
-  //       'permission:PermissionPolicy,createPermission'
-  //     )
-  //   }).prefix('permissions')
-  //   Route.group(() => {
-  //     Route.post('/create', 'RolesController.store').middleware('permission:RolePolicy,createRole')
-  //     Route.post('/sync-roles-permissions', 'RolesController.syncPermissionsAndRoles').middleware(
-  //       'permission:RolePolicy,syncRolesPermissions'
-  //     )
-  //   }).prefix('roles')
-  //   Route.group(() => {
-  //     Route.get('/me', 'AuthController.me')
-  //     Route.post('/logout', 'AuthController.logout')
-  //   }).prefix('auth')
-  // }).middleware('auth')
+  Route.group(() => {
+    // Route.group(() => {
+    //   Route.post('/create', 'PermissionsController.store').middleware(
+    //     'permission:PermissionPolicy,createPermission'
+    //   )
+    // }).prefix('permissions')
+    Route.group(() => {
+      Route.post('/create', 'RolesController.store').middleware('permission:createRole')
+      // Route.post('/sync-roles-permissions', 'RolesController.syncPermissionsAndRoles').middleware(
+      //   'permission:RolePolicy,syncRolesPermissions'
+      // )
+    }).prefix('roles')
+    Route.group(() => {
+      Route.get('/me', 'AuthController.me')
+      Route.post('/logout', 'AuthController.logout')
+    }).prefix('auth')
+  }).middleware('auth')
 }).prefix('v1')

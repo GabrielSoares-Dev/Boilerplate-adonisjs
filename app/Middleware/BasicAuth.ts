@@ -16,7 +16,7 @@ export default class BasicAuth {
     const credentials = base64.decode(base64Credentials).split(':')
     const username = credentials[0]
     const password = credentials[1]
-    console.log(credentials[0])
+
     const invalidBasic =
       username !== Env.get('AUTHENTICATOR_USERNAME') ||
       password !== Env.get('AUTHENTICATOR_PASSWORD')

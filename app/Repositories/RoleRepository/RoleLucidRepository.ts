@@ -3,9 +3,7 @@ import type RoleRepositoryInterface from 'App/Interfaces/Repositories/RoleReposi
 
 export default class RoleLucidRepository implements RoleRepositoryInterface {
 
-  constructor(private readonly model: typeof Roles) {
-    this.model = model
-  }
+  constructor(private readonly model: typeof Roles) {}
 
   public async create(name: string): Promise<boolean> {
     await this.model.create({
@@ -15,7 +13,7 @@ export default class RoleLucidRepository implements RoleRepositoryInterface {
     return true
   }
 
-  public async findByName(roleName: string) {
+  public async findByName(roleName: string):Promise<Roles | null> {
     return await this.model.findBy('name', roleName)
   }
 

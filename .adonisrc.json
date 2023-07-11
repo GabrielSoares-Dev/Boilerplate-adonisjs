@@ -20,9 +20,9 @@
     "./providers/AppProvider",
     "@adonisjs/core",
     "@adonisjs/lucid",
+    "@adonisjs/auth",
     "./providers/RepositoriesProvider",
-    "./providers/UtilsProvider",
-    "@adonisjs/auth"
+    "./providers/UtilsProvider"
   ],
   "metaFiles": [
     {
@@ -36,6 +36,13 @@
         "name": "functional",
         "files": [
           "tests/functional/**/*.spec(.ts|.js)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "name": "unit",
+        "files": [
+          "tests/unit/**/*.spec(.ts|.js)"
         ],
         "timeout": 60000
       }

@@ -3,9 +3,9 @@ import Users from 'App/Models/Users'
 import type { UserDto } from 'App/Dtos/UserDto/UserDto'
 
 export default class UserLucidRepository implements UserRepositoryInterface {
-  constructor(private readonly model: typeof Users) {
-    this.model = model
-  }
+
+
+  constructor(private readonly model: typeof Users) { }
   public async create(user: UserDto): Promise<Users> {
     const create = await this.model.create(user)
 

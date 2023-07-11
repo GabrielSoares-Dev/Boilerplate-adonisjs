@@ -1,19 +1,13 @@
-import DefaultResponse from 'App/Utils/DefaultResponse'
+import DefaultResponse from '@ioc:Utils/DefaultResponse'
 import HttpContext from '@ioc:Adonis/Core/HttpContext'
 
 export default class LogoutService {
-  constructor(
-    private readonly httpContext: typeof HttpContext,
-    private readonly defaultResponse: DefaultResponse
-  ) {
-    this.httpContext = httpContext
-    this.defaultResponse = defaultResponse
-  }
+
   public async logout() {
-    const ctx = await this.httpContext.get()
+    const ctx = await HttpContext.get()
 
     await ctx?.auth.logout()
 
-    return await this.defaultResponse.success('User successfully logged out', 200)
+    return await DefaultResponse.success('User successfully logged out', 200)
   }
 }
