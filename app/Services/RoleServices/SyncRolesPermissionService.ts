@@ -1,26 +1,16 @@
-import DefaultResponse from 'App/Utils/DefaultResponse'
-import RoleLucidRepository from 'App/Repositories/RoleRepository/RoleLucidRepository'
-import PermissionLucidRepository from 'App/Repositories/PermissionRepository/PermissionLucidRepository'
+import DefaultResponse from '@ioc:Utils/DefaultResponse'
+import RoleRepository from '@ioc:Repositories/RoleRepository'
+import PermissionRepository from '@ioc:Repositories/PermissionRepository'
 import CustomException from 'App/Exceptions/CustomException'
 
 export default class SyncRolesPermissionService {
-  constructor(
-    private readonly defaultResponse: DefaultResponse,
-    private readonly roleRepository: RoleLucidRepository,
-    private readonly permissionRepository: PermissionLucidRepository
-  ) {
-    this.roleRepository = roleRepository
-    this.defaultResponse = defaultResponse
-    this.permissionRepository = permissionRepository
-  }
-
   public async syncRolesAndPermission(roleName: string, permissionsNames: string[]) {
-    const role = await this.roleRepository.findByName(roleName)
+    const role = await RoleRepository.findByName(roleName)
 
     if (!role) {
       throw new CustomException('Role not found', 404)
     }
-    const permissions = await this.permissionRepository.getPermissionsByNames(permissionsNames)
+    const permissions = await PermissionRepository.getPermissionsByNames(permissionsNames)
 
     const permissionsIds = permissions.map((permission) => permission.id)
 
@@ -43,8 +33,8 @@ export default class SyncRolesPermissionService {
       throw new CustomException(`There are duplicate permissions: ${duplicatePermissions}`, 400)
     }
 
-    await this.roleRepository.syncRolesAndPermissions(roleName, permissionsIds)
-    return await this.defaultResponse.success(
+    await RoleRepository.syncRolesAndPermissions(roleName, permissionsIds)
+    return await DefaultResponse.success(
       'Synchronized permissions with the role successfully',
       200
     )

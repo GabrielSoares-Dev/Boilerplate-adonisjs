@@ -9,3 +9,8 @@ declare module '@ioc:Repositories/RoleRepository' {
   const RoleRepository:  RoleRepositoryInterface
   export default RoleRepository
 }
+declare module '@ioc:Repositories/PermissionRepository' {
+  import type PermissionRepositoryInterface from "App/Interfaces/Repositories/PermissionRepositoryInterface"
+  const PermissionRepository:  PermissionRepositoryInterface
+  export default PermissionRepository
+}

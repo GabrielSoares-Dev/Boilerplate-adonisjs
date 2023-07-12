@@ -1,0 +1,854 @@
+{
+	"info": {
+		"_postman_id": "29f56e76-83f3-44cb-815d-4c70436080de",
+		"name": "Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12430293"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}health"
+					},
+					"response": [
+						{
+							"name": "Health check",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{URL}}health"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "395"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Jul 2023 22:23:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Server is running\",\n    \"content\": {\n        \"healthy\": true,\n        \"report\": {\n            \"env\": {\n                \"displayName\": \"Node Env Check\",\n                \"health\": {\n                    \"healthy\": true\n                }\n            },\n            \"appKey\": {\n                \"displayName\": \"App Key Check\",\n                \"health\": {\n                    \"healthy\": true\n                }\n            },\n            \"lucid\": {\n                \"displayName\": \"Database\",\n                \"health\": {\n                    \"healthy\": true,\n                    \"message\": \"All connections are healthy\"\n                },\n                \"meta\": [\n                    {\n                        \"connection\": \"pg\",\n                        \"message\": \"Connection is healthy\",\n                        \"error\": null\n                    }\n                ]\n            }\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "{{AUTHENTICATOR_PASSWORD}}",
+								"username": "{{AUTHENTICATOR_USERNAME}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"gabriel\",\r\n    \"phoneNumber\": \"11942421224\",\r\n    \"email\": \"gmaciel@outlook.com.br\",\r\n    \"password\": \"Mogi@23\",\r\n    \"confirmPassword\":\"Mogi@23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/users/create"
+					},
+					"response": [
+						{
+							"name": "Email already exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"gabriel\",\r\n    \"phoneNumber\": \"11942421224\",\r\n    \"email\": \"gmaciel@outlook.com.br\",\r\n    \"password\": \"Mogi@23\",\r\n    \"confirmPassword\":\"Mogi@23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/users/create"
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "39"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jul 2023 23:58:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": [\n        \"unique validation failure\"\n    ]\n}"
+						},
+						{
+							"name": "User created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"gabriel\",\r\n    \"phoneNumber\": \"11942421224\",\r\n    \"email\": \"gmaciel@outlook.com.br\",\r\n    \"password\": \"Mogi@23\",\r\n    \"confirmPassword\":\"Mogi@23\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/users/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "56"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jul 2023 23:58:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"User created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Valid email",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "{{AUTHENTICATOR_PASSWORD}}",
+								"username": "{{AUTHENTICATOR_USERNAME}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"gmaciel@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/users/valid-email"
+					},
+					"response": [
+						{
+							"name": "Invalid email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"gmaciel@outlook.com.br\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/users/valid-email"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "47"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jul 2023 00:55:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email is invalid\"\n}"
+						},
+						{
+							"name": "ValidEmail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"gmaciel@outlook.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/users/valid-email"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "45"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jul 2023 00:55:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Email is valid\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "{{AUTHENTICATOR_PASSWORD}}",
+								"username": "{{AUTHENTICATOR_USERNAME}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"gmaciel@outlook.com.br\",\r\n    \"password\": \"Mogi@23\",\r\n    \"deviceName\": \"postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/auth/login"
+					},
+					"response": [
+						{
+							"name": "Login success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"gmaciel@outlook.com.br\",\r\n    \"password\": \"Mogi@23\",\r\n    \"deviceName\": \"postman\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/auth/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "472"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 00:54:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Authenticated\",\n    \"content\": {\n        \"accessToken\": {\n            \"type\": \"bearer\",\n            \"token\": \"MQ.f1wE1til3S8hLxiumEMQdixpQrTIBxNbwzW67iWCuUjagOgtWm_cF0VYBBsF\"\n        },\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"gabriel\",\n            \"email\": \"gmaciel@outlook.com.br\",\n            \"phoneNumber\": \"11942421224\",\n            \"roleName\": \"ADMIN\",\n            \"createdAt\": \"11/07/2023 00:50:15\",\n            \"permissions\": [\n                \"createPermission\",\n                \"deletePermission\",\n                \"updatePermission\",\n                \"viewPermission\",\n                \"createRole\",\n                \"updateRole\",\n                \"viewRole\",\n                \"deleteRole\",\n                \"syncRolesPermissions\"\n            ]\n        }\n    }\n}"
+						},
+						{
+							"name": "Invalid Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"gmaciel@outlook.com\",\r\n    \"password\": \"Mogi@23\",\r\n    \"deviceName\": \"postman\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "50"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 00:54:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Invalid Credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "NA.oFFOw7MPKRZI6SoTwwVc6UKxCbdjQ3-ekp5hiw_ACPl-0ZD-9en0lic_Hgxl"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}v1/auth/me"
+					},
+					"response": [
+						{
+							"name": "Informations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{URL}}v1/auth/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "382"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:04:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"User information successfully returned\",\n    \"content\": {\n        \"id\": 1,\n        \"name\": \"gabriel\",\n        \"email\": \"gmaciel@outlook.com.br\",\n        \"phoneNumber\": \"11942421224\",\n        \"roleName\": \"ADMIN\",\n        \"createdAt\": \"11/07/2023 00:50:15\",\n        \"permissions\": [\n            \"createPermission\",\n            \"deletePermission\",\n            \"updatePermission\",\n            \"viewPermission\",\n            \"createRole\",\n            \"updateRole\",\n            \"viewRole\",\n            \"deleteRole\",\n            \"syncRolesPermissions\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "NA.oFFOw7MPKRZI6SoTwwVc6UKxCbdjQ3-ekp5hiw_ACPl-0ZD-9en0lic_Hgxl"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{URL}}v1/auth/logout"
+					},
+					"response": [
+						{
+							"name": "Logout successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{URL}}v1/auth/logout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "59"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:08:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"User successfully logged out\"\n}"
+						},
+						{
+							"name": "Invalid Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{URL}}v1/auth/logout"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "43"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:09:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "NQ.pXK89fNZXOXMd0BW6QcCNoMzattW6NFqgYrESYXxI7wjIKOLvX94vKNRckz2"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TESTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/roles/create"
+					},
+					"response": [
+						{
+							"name": "Role created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/roles/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "56"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:21:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Role created successfully\"\n}"
+						},
+						{
+							"name": "Role already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"TESTE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/roles/create"
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "38"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:21:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": [\n        \"unique validation failure\"\n    ]\n}"
+						},
+						{
+							"name": "Resource denied",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"TESTE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/roles/create"
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "64"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Jul 2023 01:29:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 403,\n    \"message\": \"Access to this resource is denied\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Sync roles and permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Nw.b33HSA988I-LI3d_CHXIlPqlQS6hofAxOE4l9KghMq_OEDUE5J_vw1w02kuT"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\":\"ADMIN\",\r\n    \"permissions\":[\"teste\"]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/roles/sync-roles-permissions"
+					},
+					"response": [
+						{
+							"name": "Sync with success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"roleName\":\"ADMIN\",\r\n    \"permissions\":[\"teste\"]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/roles/sync-roles-permissions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "82"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jul 2023 00:36:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Synchronized permissions with the role successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Permissions",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Nw.b33HSA988I-LI3d_CHXIlPqlQS6hofAxOE4l9KghMq_OEDUE5J_vw1w02kuT"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}v1/permissions/create"
+					},
+					"response": [
+						{
+							"name": "Permission created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{URL}}v1/permissions/create"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-length",
+									"value": "62"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jul 2023 00:09:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Permission created successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

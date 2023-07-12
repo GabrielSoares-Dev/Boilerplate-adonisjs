@@ -3,7 +3,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/health', 'HealthController.health')
 
 Route.group(() => {
-  //not logged routes
+  //not logged
   Route.group(() => {
     Route.group(() => {
       Route.post('/login', 'AuthController.login')
@@ -11,22 +11,22 @@ Route.group(() => {
 
     Route.group(() => {
       Route.post('/create', 'UsersController.store')
-      // Route.post('/valid-email', 'UsersController.validEmail')
-      // Route.post('/valid-zipcode', 'UsersController.validZipCode')
+      Route.post('/valid-email', 'UsersController.validEmail')
     }).prefix('users')
   }).middleware('basicAuth')
 
+  //logged
   Route.group(() => {
-    // Route.group(() => {
-    //   Route.post('/create', 'PermissionsController.store').middleware(
-    //     'permission:PermissionPolicy,createPermission'
-    //   )
-    // }).prefix('permissions')
+    Route.group(() => {
+      Route.post('/create', 'PermissionsController.store').middleware(
+        'permission:createPermission'
+      )
+    }).prefix('permissions')
     Route.group(() => {
       Route.post('/create', 'RolesController.store').middleware('permission:createRole')
-      // Route.post('/sync-roles-permissions', 'RolesController.syncPermissionsAndRoles').middleware(
-      //   'permission:RolePolicy,syncRolesPermissions'
-      // )
+      Route.post('/sync-roles-permissions', 'RolesController.syncPermissionsAndRoles').middleware(
+        'permission:syncRolesPermissions'
+      )
     }).prefix('roles')
     Route.group(() => {
       Route.get('/me', 'AuthController.me')

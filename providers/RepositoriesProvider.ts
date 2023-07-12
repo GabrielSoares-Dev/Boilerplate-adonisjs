@@ -12,10 +12,16 @@ export default class RepositoriesProvider {
       return new UserLucidRepository(userModel)
     })
     this.app.container.bind('Repositories/RoleRepository', () => {
-      const RolesLucidRepository = require('App/Repositories/RoleRepository/RoleLucidRepository').default
+      const RoleLucidRepository = require('App/Repositories/RoleRepository/RoleLucidRepository').default
       const rolesModel = require('App/Models/Roles').default
 
-      return new RolesLucidRepository(rolesModel)
+      return new RoleLucidRepository(rolesModel)
+    })
+    this.app.container.bind('Repositories/PermissionRepository', () => {
+      const PermissionLucidRepository = require('App/Repositories/PermissionRepository/PermissionLucidRepository').default
+      const permissionsModel = require('App/Models/Permissions').default
+
+      return new PermissionLucidRepository(permissionsModel)
     })
 
   }

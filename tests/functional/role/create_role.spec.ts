@@ -1,7 +1,6 @@
 import { test } from '@japa/runner'
 import Database from '@ioc:Adonis/Lucid/Database'
 import RoleFactory from 'Database/factories/RoleFactory'
-import Env from '@ioc:Adonis/Core/Env'
 import { faker } from '@faker-js/faker'
 import { basicCredentials, mockCredentials } from '../../helpers'
 
@@ -30,6 +29,8 @@ test.group('Create roles', (group) => {
     sut.assertBodyContains({ message: 'Role created successfully' })
   })
   // test('Should be a unathorized action', async ({ client }) => {
+
+
   //   const login = await client
   //     .post(urlLogin)
   //     .basicAuth(basicCredentials.username, basicCredentials.password)
@@ -43,6 +44,7 @@ test.group('Create roles', (group) => {
 
   //   sut.assertStatus(403)
   //   sut.assertBodyContains({ message: 'Access to this resource is denied' })
+  //   sinon.restore();
   // })
 
   test('Should be already exists name role', async ({ client }) => {
