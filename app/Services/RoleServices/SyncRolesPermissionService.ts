@@ -34,9 +34,6 @@ export default class SyncRolesPermissionService {
     }
 
     await RoleRepository.syncRolesAndPermissions(roleName, permissionsIds)
-    return await DefaultResponse.success(
-      'Synchronized permissions with the role successfully',
-      200
-    )
+    return await DefaultResponse.success('Synchronized permissions with the role successfully', 200)
   }
 }

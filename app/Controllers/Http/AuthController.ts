@@ -5,7 +5,6 @@ import LogoutService from 'App/Services/AuthServices/LogoutService'
 import LoginValidator from 'App/Validators/LoginValidator'
 
 export default class AuthController {
-
   private loginService: LoginService
   private meService: MeService
   private logoutService: LogoutService

@@ -31,7 +31,6 @@ test.group('Create user', (group) => {
   })
 
   test('Should generate error because has other user with same email', async ({ client }) => {
-
     const sut = await client
       .post(url)
       .basicAuth(basicCredentials.username, basicCredentials.password)
@@ -42,5 +41,4 @@ test.group('Create user', (group) => {
     sut.assertStatus(422)
     sut.assertBodyContains({ email: ['unique validation failure'] })
   })
-
 })

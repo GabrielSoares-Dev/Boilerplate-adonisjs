@@ -117,7 +117,6 @@ test.group('Login', (group) => {
     sut.assertBody({ deviceName: ['required validation failed'] })
   })
 
-
   test('Should be empty basic credentials', async ({ client }) => {
     const sut = await client.post(url)
 

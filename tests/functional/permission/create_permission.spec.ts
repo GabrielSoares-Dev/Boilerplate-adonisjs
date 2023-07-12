@@ -1,7 +1,6 @@
 import { test } from '@japa/runner'
 import Database from '@ioc:Adonis/Lucid/Database'
 import PermissionFactory from 'Database/factories/PermissionFactory'
-import Env from '@ioc:Adonis/Core/Env'
 import { faker } from '@faker-js/faker'
 import { basicCredentials, mockCredentials } from '../../helpers'
 
@@ -31,9 +30,9 @@ test.group('Create permissions', (group) => {
 
   test('Should be already exists name permission', async ({ client }) => {
     const login = await client
-    .post(urlLogin)
-    .basicAuth(basicCredentials.username, basicCredentials.password)
-    .json(mockCredentials)
+      .post(urlLogin)
+      .basicAuth(basicCredentials.username, basicCredentials.password)
+      .json(mockCredentials)
     const permission = await PermissionFactory.create()
     const sut = await client
       .post(url)

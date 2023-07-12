@@ -11,7 +11,6 @@ test.group('Me', (group) => {
     return () => Database.rollbackGlobalTransaction()
   })
 
-
   test('Should be is returned user admin informations', async ({ client }) => {
     const login = await client
       .post(urlLogin)

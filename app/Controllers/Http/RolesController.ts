@@ -10,9 +10,7 @@ export default class RolesController {
 
   constructor() {
     this.createRoleService = new CreateRoleService()
-    this.syncRolesPermissionService = new SyncRolesPermissionService(
-
-    )
+    this.syncRolesPermissionService = new SyncRolesPermissionService()
   }
   public async store({ request }: HttpContextContract) {
     const payload = await request.validate(RoleValidator)

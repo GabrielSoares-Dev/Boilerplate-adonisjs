@@ -3,7 +3,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import CustomException from 'App/Exceptions/CustomException'
 
 export default class AuthMiddleware {
-
   protected async authenticate(auth: HttpContextContract['auth'], guards: (keyof GuardsList)[]) {
     //@ts-ignore
     let guardLastAttempted: string | undefined
@@ -13,7 +12,6 @@ export default class AuthMiddleware {
 
       if (await auth.use(guard).check()) {
         auth.defaultGuard = guard
-
 
         return true
       }

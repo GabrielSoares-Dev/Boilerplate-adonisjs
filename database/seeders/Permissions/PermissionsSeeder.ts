@@ -3,7 +3,6 @@ import Permissions from 'App/Models/Permissions'
 
 export default class PermissionsSeeder extends BaseSeeder {
   public async run() {
-
     await Permissions.createMany([
       {
         name: 'createPermission',

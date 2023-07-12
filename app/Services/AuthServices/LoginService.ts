@@ -5,7 +5,6 @@ import CustomException from 'App/Exceptions/CustomException'
 import UserRepository from '@ioc:Repositories/UserRepository'
 
 export default class LoginService {
-
   public async login(email: string, password: string) {
     const ctx = await HttpContext.get()
     const user = await UserRepository.findByEmail(email)
@@ -25,7 +24,6 @@ export default class LoginService {
     )
     const userData = await ctx?.auth.user?.serialize()
 
-
     if (isAdmin) {
       userInfos = {
         ...userData,
@@ -37,6 +35,6 @@ export default class LoginService {
       user: userInfos,
     }
 
-    return await  DefaultResponse.successWithContent('Authenticated', 200, data)
+    return await DefaultResponse.successWithContent('Authenticated', 200, data)
   }
 }

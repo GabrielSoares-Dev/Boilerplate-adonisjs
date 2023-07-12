@@ -1,4 +1,3 @@
-
 import Env from '@ioc:Adonis/Core/Env'
 import type { DatabaseConfig } from '@ioc:Adonis/Lucid/Database'
 
@@ -24,8 +23,7 @@ const databaseConfig: DatabaseConfig = {
         paths: ['./database/seeders/MainSeeder'],
       },
     },
-
-  }
+  },
 }
 
 export default databaseConfig

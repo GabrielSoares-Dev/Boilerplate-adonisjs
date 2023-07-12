@@ -3,9 +3,7 @@ import Users from 'App/Models/Users'
 import type { UserDto } from 'App/Dtos/UserDto/UserDto'
 
 export default class UserLucidRepository implements UserRepositoryInterface {
-
-
-  constructor(private readonly model: typeof Users) { }
+  constructor(private readonly model: typeof Users) {}
   public async create(user: UserDto): Promise<Users> {
     const create = await this.model.create(user)
 
@@ -18,5 +16,4 @@ export default class UserLucidRepository implements UserRepositoryInterface {
   public async findUserById(id: number): Promise<Users | null> {
     return await this.model.findBy('id', id)
   }
-
 }

@@ -1,10 +1,9 @@
-import DefaultResponse from '@ioc:Utils/DefaultResponse';
-import RoleRepository from '@ioc:Repositories/RoleRepository';
-import UserRepository from '@ioc:Repositories/UserRepository';
-import type { CreateUserDto } from 'App/Dtos/UserDto/CreateUserDto';
+import DefaultResponse from '@ioc:Utils/DefaultResponse'
+import RoleRepository from '@ioc:Repositories/RoleRepository'
+import UserRepository from '@ioc:Repositories/UserRepository'
+import type { CreateUserDto } from 'App/Dtos/UserDto/CreateUserDto'
 
 export default class CreateUserService {
-
   public async create({ name, email, password, phoneNumber }: CreateUserDto) {
     const roleAdmin = await RoleRepository.findByName('ADMIN')
 

@@ -1,5 +1,8 @@
-import type { Permissions } from "Config/permissions"
+import type { Permissions } from 'Config/permissions'
 
-export const checkHasPermission = async (expectedPermission: Permissions,permissions:Permissions[]) => {
+export const checkHasPermission = async (
+  expectedPermission: Permissions,
+  permissions: Permissions[]
+) => {
   return permissions.includes(expectedPermission)
 }

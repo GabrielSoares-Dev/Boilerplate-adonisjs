@@ -30,7 +30,6 @@ test.group('Create roles', (group) => {
   })
   // test('Should be a unathorized action', async ({ client }) => {
 
-
   //   const login = await client
   //     .post(urlLogin)
   //     .basicAuth(basicCredentials.username, basicCredentials.password)

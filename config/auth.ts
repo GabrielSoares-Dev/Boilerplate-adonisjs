@@ -1,6 +1,5 @@
 import type { AuthConfig } from '@ioc:Adonis/Addons/Auth'
 
-
 const authConfig: AuthConfig = {
   guard: 'api',
   guards: {

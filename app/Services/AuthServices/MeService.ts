@@ -2,7 +2,6 @@ import DefaultResponse from '@ioc:Utils/DefaultResponse'
 import HttpContext from '@ioc:Adonis/Core/HttpContext'
 
 export default class MeService {
-
   public async me() {
     let user
     const ctx = await HttpContext.get()
@@ -13,8 +12,6 @@ export default class MeService {
       (permission) => permission.name
     )
     const userData = await ctx?.auth.user?.serialize()
-
-
 
     if (isAdmin) {
       user = {

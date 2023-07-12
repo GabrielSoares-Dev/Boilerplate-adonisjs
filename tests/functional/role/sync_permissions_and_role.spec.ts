@@ -2,7 +2,6 @@ import { test } from '@japa/runner'
 import Database from '@ioc:Adonis/Lucid/Database'
 import RoleFactory from 'Database/factories/RoleFactory'
 import PermissionFactory from 'Database/factories/PermissionFactory'
-import Env from '@ioc:Adonis/Core/Env'
 import { basicCredentials, mockCredentials } from '../../helpers'
 
 const url = '/v1/roles/sync-roles-permissions'

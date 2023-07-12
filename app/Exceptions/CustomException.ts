@@ -1,5 +1,5 @@
-import {Exception} from '@adonisjs/core/build/standalone'
-import {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
+import { Exception } from '@adonisjs/core/build/standalone'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class CustomException extends Exception {
   public async handle(error: this, ctx: HttpContextContract) {

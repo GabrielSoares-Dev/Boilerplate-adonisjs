@@ -1,4 +1,3 @@
-
 import { UserDto } from 'App/Dtos/UserDto/UserDto'
 import Users from 'App/Models/Users'
 

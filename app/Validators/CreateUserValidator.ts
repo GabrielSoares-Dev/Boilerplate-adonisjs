@@ -15,7 +15,5 @@ export default class CreateUserValidator {
       }),
     ]),
     password: schema.string({}, [rules.confirmed('confirmPassword')]),
-
   })
-
 }

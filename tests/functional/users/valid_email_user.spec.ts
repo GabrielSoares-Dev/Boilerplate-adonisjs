@@ -1,8 +1,7 @@
 import { test } from '@japa/runner'
 import Database from '@ioc:Adonis/Lucid/Database'
-import Env from '@ioc:Adonis/Core/Env'
 import { faker } from '@faker-js/faker'
-import {  basicCredentials } from '../../helpers'
+import { basicCredentials } from '../../helpers'
 
 const url = '/v1/users/valid-email'
 const mockEmail = faker.internet.email()

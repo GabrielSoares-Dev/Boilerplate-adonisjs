@@ -1,4 +1,3 @@
-
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import CreateUserService from 'App/Services/UsersService/CreateUserService'
 import CreateUserValidator from 'App/Validators/CreateUserValidator'
@@ -6,7 +5,6 @@ import ValidEmailService from 'App/Services/UsersService/ValidEmailService'
 import ValidEmailValidator from 'App/Validators/ValidEmailValidator'
 
 export default class UsersController {
-
   private createUserService: CreateUserService
   private validEmailService: ValidEmailService
 

@@ -1,6 +1,5 @@
 import { test } from '@japa/runner'
 import Database from '@ioc:Adonis/Lucid/Database'
-import Env from '@ioc:Adonis/Core/Env'
 import { basicCredentials, mockCredentials } from '../../helpers'
 
 const url = '/v1/auth/logout'

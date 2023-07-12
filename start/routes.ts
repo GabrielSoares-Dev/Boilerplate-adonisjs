@@ -1,7 +1,6 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/health', 'HealthController.health')
-
 Route.group(() => {
   //not logged
   Route.group(() => {
@@ -18,9 +17,7 @@ Route.group(() => {
   //logged
   Route.group(() => {
     Route.group(() => {
-      Route.post('/create', 'PermissionsController.store').middleware(
-        'permission:createPermission'
-      )
+      Route.post('/create', 'PermissionsController.store').middleware('permission:createPermission')
     }).prefix('permissions')
     Route.group(() => {
       Route.post('/create', 'RolesController.store').middleware('permission:createRole')
