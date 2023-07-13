@@ -9,4 +9,6 @@ export default Env.rules({
   NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
   AUTHENTICATOR_USERNAME: Env.schema.string(),
   AUTHENTICATOR_PASSWORD: Env.schema.string(),
+  VIACEP_API: Env.schema.string(),
+  NTFY_API: Env.schema.string(),
 })

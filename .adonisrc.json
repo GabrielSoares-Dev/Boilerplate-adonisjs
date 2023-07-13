@@ -22,7 +22,8 @@
     "@adonisjs/lucid",
     "@adonisjs/auth",
     "./providers/RepositoriesProvider",
-    "./providers/UtilsProvider"
+    "./providers/UtilsProvider",
+    "./providers/ExternalApisProvider"
   ],
   "metaFiles": [
     {
