@@ -14,5 +14,9 @@ export default class UtilsProvider {
       const FormatDate = require('App/Utils/FormatDate').default
       return new FormatDate()
     })
+    this.app.container.singleton('Utils/DefaultPaginate', () => {
+      const DefaultPaginate = require('App/Utils/DefaultPaginate').default
+      return new DefaultPaginate()
+    })
   }
 }

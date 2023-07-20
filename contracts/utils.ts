@@ -8,3 +8,8 @@ declare module '@ioc:Utils/FormatDate' {
   const FormatDate: FormatDateInterface
   export default FormatDate
 }
+declare module '@ioc:Utils/DefaultPaginate' {
+  import type { DefaultPaginateInterface } from 'App/Interfaces/Utils/DefaultPaginateInterface'
+  const DefaultPaginate: DefaultPaginateInterface
+  export default DefaultPaginate
+}
