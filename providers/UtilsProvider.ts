@@ -10,5 +10,9 @@ export default class UtilsProvider {
       const context = this.app.container.resolveBinding('Adonis/Core/HttpContext')
       return new DefaultResponse(context)
     })
+    this.app.container.singleton('Utils/FormatDate', () => {
+      const FormatDate = require('App/Utils/FormatDate').default
+      return new FormatDate()
+    })
   }
 }
