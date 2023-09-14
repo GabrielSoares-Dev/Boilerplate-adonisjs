@@ -60,7 +60,7 @@
     "nyc": "^15.1.0",
     "pino-pretty": "^10.2.0",
     "prettier": "^3.0.3",
-    "sinon": "^15.2.0",
+    "sinon": "^16.0.0",
     "typescript": "~5.2",
     "youch": "^3.3.1",
     "youch-terminal": "^2.2.2"
