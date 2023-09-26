@@ -47,7 +47,7 @@
     "@japa/preset-adonis": "^1.2.0",
     "@japa/runner": "^2.5.1",
     "@types/proxy-addr": "^2.0.1",
-    "@types/sinon": "^10.0.16",
+    "@types/sinon": "^10.0.17",
     "@types/source-map-support": "^0.5.8",
     "adonis-preset-ts": "^2.1.0",
     "cz-conventional-changelog": "^3.3.0",
