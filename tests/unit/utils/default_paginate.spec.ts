@@ -20,7 +20,6 @@ test.group('Default paginate', () => {
       items,
       paginateProperties: mockPaginator,
     })
-    console.log(result)
 
     assert.equal(result.totalRegisters, 100)
     assert.equal(result.currentPage, 1)
