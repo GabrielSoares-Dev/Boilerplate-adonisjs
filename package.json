@@ -61,7 +61,7 @@
     "pino-pretty": "^10.0.1",
     "prettier": "^3.0.3",
     "sinon": "^17.0.0",
-    "typescript": "~5.2",
+    "typescript": "~5.3",
     "youch": "^3.2.2",
     "youch-terminal": "^2.2.2"
   },
